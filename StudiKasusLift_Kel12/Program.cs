@@ -8,7 +8,7 @@ namespace SimulasiLift
         {
             // 1. PERSIAPAN DENAH DAN BUKU VIP
             string[] denahFasilkom = {
-                "Parkiran Motor",     // Lantai 1
+                "Parkiran Motor",     // Lantai 1 lobby
                 "Lobi Utama",         // Lantai 2
                 "Lab Komputer",       // Lantai 3
                 "Ruang Server",       // Lantai 4 (VIP)
