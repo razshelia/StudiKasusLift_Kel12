@@ -6,49 +6,40 @@ namespace SimulasiLift
     {
         static void Main(string[] args)
         {
-            // 1. PERSIAPAN DENAH DAN BUKU VIP
+            // 1. DATA GEDUNG
             string[] denahFasilkom = {
-                "Parkiran Motor",     // Lantai 1 lobby
-                "Lobi Utama",         // Lantai 2
+                "Lobby Parkir",       // Lantai 1 
+                "Ruang Tata Usaha",   // Lantai 2
                 "Lab Komputer",       // Lantai 3
-                "Ruang Server",       // Lantai 4 (VIP)
-                "Ruang Direktur"      // Lantai 5 (VIP)
+                "Ruang Server"        // Lantai 4 (VIP)
             };
+            int[] lantaiVip = { 4 };
 
-            string[] denahRuko = {
-                "Lantai Dasar (Toko)", // Lantai 1
-                "Lantai Dua (Gudang)", // Lantai 2
-                "Lantai Tiga (Mess)"   // Lantai 3
-            };
+            // 2. UPCASTING (POLIMORFISME)
+            Lift liftTamu = new Orang("Lift Penumpang", 800, denahFasilkom, lantaiVip);
+            Lift liftKargo = new Barang("Lift Barang", 3000, denahFasilkom, lantaiVip);
 
-            // Membuat buku daftar VIP. Hanya dideklarasikan SATU KALI di sini.
-            int[] tanpaVip = new int[0]; // Buku kosong
-            int[] banyakVip = { 4, 5 };  // Buku berisi lantai 4 dan 5
+            // 3. UJI COBA ENKAPSULASI (BEBAN)
+            Console.WriteLine("=== UJI COBA ENKAPSULASI MUATAN ===");
+            liftKargo.TambahBeban(1000); // Aman
+            liftKargo.TambahBeban(2500); // Ditolak karena 1000+2500 = 3500 > 3000
 
-            // 2. PEMBUATAN OBJEK LIFT
+            // 4. UJI COBA OVERLOADING (HAK AKSES VIP)
+            Console.WriteLine("\n=== UJI COBA OVERLOADING TIPE INPUT ===");
+            liftTamu.TekanTombol(3);                  // Sukses (Tanpa kartu)
+            liftTamu.TekanTombol(4);                  // Ditolak (Area VIP)
+            liftTamu.TekanTombol(4, "KARTU-TEKNISI"); // Sukses (Pakai kartu valid)
 
-            // Lift Kargo di Fasilkom (Gedung besar, punya lantai VIP)
-            Barang liftFasilkom = new Barang("Lift Fasilkom", 3000, denahFasilkom, banyakVip);
+            // 5. UJI COBA OVERRIDING (MATEMATIKA WAKTU TEMPUH)
+            Console.WriteLine("\n=== UJI COBA OVERRIDING RUMUS MATEMATIKA ===");
 
-            // Lift Ruko (Gedung kecil, kita berikan buku 'tanpaVip' di sini)
-            Orang liftRuko = new Orang("Lift Ruko Bebas", 500, denahRuko, tanpaVip);
+            Console.WriteLine("[Persiapan: Menaikkan Lift Kargo ke Lantai 4]");
+            liftKargo.TekanTombol(4, "KARTU-TEKNISI");
 
-            // 3. UJI COBA POLIMORFISME
+            Console.WriteLine("\n[Perbandingan Balapan Turun ke Lantai 1 (Jarak 3 lantai)]");
 
-            Console.WriteLine("=== SIMULASI LIFT DENGAN VIP (FASILKOM) ===");
-            // Berhasil karena lantai 3 bukan VIP
-            liftFasilkom.TekanTombol(3);
-
-            // Ditolak karena lantai 4 adalah VIP (hanya tekan tombol)
-            liftFasilkom.TekanTombol(4);
-
-            // Berhasil masuk lantai 4 karena menempelkan kartu (Overloading)
-            liftFasilkom.TekanTombol(4, "KARTU-TEKNISI");
-
-
-            Console.WriteLine("\n=== SIMULASI LIFT TANPA VIP (RUKO) ===");
-            // Langsung berhasil naik ke lantai paling atas karena tidak ada VIP di ruko ini
-            liftRuko.TekanTombol(3);
+            liftTamu.TekanTombol(1);  
+            liftKargo.TekanTombol(1); 
 
             Console.ReadLine();
         }
