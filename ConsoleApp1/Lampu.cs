@@ -4,10 +4,10 @@ using System.Text;
 
 namespace StudiKasusLaluLintas_Kel_12
 {
-    public class Lampu
+    public class trafficLight
     {
         // Atribut (Private Fields)
-        private string Warna; // Merah, Kuning, Hijau
+        private string Warna = "Merah"; // Merah, Kuning, Hijau
 
         // Encapsulation (Property)
         public string Status
@@ -17,9 +17,9 @@ namespace StudiKasusLaluLintas_Kel_12
         }
 
         // Constructor
-        public Lampu(string warna)
+        public trafficLight(string Warna)
         {
-            this.Status = warna;
+            this.Status = Warna;
         }
     }
 }

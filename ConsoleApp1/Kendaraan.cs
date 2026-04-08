@@ -40,7 +40,7 @@ namespace StudiKasusLaluLintas_Kel_12
         }
 
         // --- METHOD (Polimorfisme) ---
-        public abstract void Jalan(Lampu sinyal);
+        public abstract void Jalan(trafficLight s);
 
         public virtual void Menepi()
         {
@@ -49,4 +49,3 @@ namespace StudiKasusLaluLintas_Kel_12
         }
     }
 }
-

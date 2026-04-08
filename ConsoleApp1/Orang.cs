@@ -14,14 +14,13 @@ namespace StudiKasusLaluLintas_Kel_12
         }
 
         // Method dengan parameter objek Lampu
-        public void Jalan(Lampu sinyal)
+        public void Jalan(trafficLight s)
         {
             // Logika: Hanya menyeberang jika lampu Merah (bagi kendaraan)
-            if (sinyal.Status == "Merah")
+            if (s.Status == "Merah")
                 Console.WriteLine($"{this.Nama} sedang menyeberang di Zebra Cross.");
             else
                 Console.WriteLine($"{this.Nama} menunggu di pinggir jalan.");
         }
     }
 }
-

@@ -23,4 +23,3 @@ namespace StudiKasusLaluLintas_Kel_12
         public override void Menepi() { }
     }
 }
-

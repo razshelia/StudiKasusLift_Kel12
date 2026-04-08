@@ -9,7 +9,7 @@ namespace StudiKasusLaluLintas_Kel_12
     {
         static void Main()
         {
-            Lampu rambu = new Lampu("hijau");
+            trafficLight rambu = new trafficLight("Hijau");
 
             // Di sini kita set sirine secara spesifik per objek
             List<Kendaraan> jalanan = new List<Kendaraan>
@@ -18,7 +18,7 @@ namespace StudiKasusLaluLintas_Kel_12
             new Motor(40),
             new Bus(30),
             new Sepeda(15),
-            new Ambulan(90, false),
+            new Ambulan(90, true),
             new Pemadam(70, false)
         };
 
