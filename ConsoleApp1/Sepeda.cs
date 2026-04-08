@@ -9,8 +9,18 @@ namespace StudiKasusLaluLintas_Kel_12
         public Sepeda(int laju) : base(laju, 20) { }
         public override void Jalan(trafficLight s)
         {
-            if (s.Status == "Merah") this.Kecepatan = 0;
-            Console.WriteLine($"Sepeda melaju {this.Kecepatan} km/jam di jalur khusus.");
+            if (s.Status == "Merah")
+            {
+                this.Menepi();
+            }
+            if (s.Status == "Hijau")
+            {
+                Console.WriteLine($"Sepeda melaju {this.Kecepatan} km/jam di jalur khusus.");
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

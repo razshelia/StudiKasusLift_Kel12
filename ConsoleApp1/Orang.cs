@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StudiKasusLaluLintas_Kel_12
 {
@@ -13,14 +11,20 @@ namespace StudiKasusLaluLintas_Kel_12
             this.Nama = nama;
         }
 
-        // Method dengan parameter objek Lampu
-        public void Jalan(trafficLight s)
+        public void Jalan(trafficLight sinyal, bool adaDarurat)
         {
-            // Logika: Hanya menyeberang jika lampu Merah (bagi kendaraan)
-            if (s.Status == "Merah")
-                Console.WriteLine($"{this.Nama} sedang menyeberang di Zebra Cross.");
+            if (sinyal.Status == "Merah" && adaDarurat == false)
+            {
+                Console.WriteLine($"{this.Nama} sedang menyeberang di Zebra Cross dengan aman.");
+            }
+            else if (sinyal.Status == "Merah" && adaDarurat == true)
+            {
+                Console.WriteLine($"{this.Nama} membatalkan penyeberangan dan mundur ke trotoar karena ada Kendaraan Darurat!");
+            }
             else
-                Console.WriteLine($"{this.Nama} menunggu di pinggir jalan.");
+            {
+                Console.WriteLine($"{this.Nama} menunggu di pinggir jalan karena kendaraan sedang melaju.");
+            }
         }
     }
 }

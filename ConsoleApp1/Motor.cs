@@ -7,10 +7,20 @@ namespace StudiKasusLaluLintas_Kel_12
     public class Motor : Kendaraan
     {
         public Motor(int laju) : base(laju, 50) { }
-        public override void Jalan(trafficLight s) //s adalah nilai dari parameter trafficLight
+        public override void Jalan(trafficLight s)
         {
-            if (s.Status == "Merah") this.Kecepatan = 0;
-            Console.WriteLine($"Motor melaju {this.Kecepatan} km/jam.");
+            if (s.Status == "Merah")
+            {
+                this.Menepi();
+            }
+            if (s.Status == "Hijau")
+            {
+                Console.WriteLine($"{this.GetType().Name} melaju {this.Kecepatan} km/jam.");
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
